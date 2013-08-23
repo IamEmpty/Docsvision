@@ -277,8 +277,16 @@ body {
 			color: #40536A;
 			float: right;
 			text-decoration: none;
-			margin-right: 29px;
+			margin-right: 6px;
 		}
+
+			.main-content .top-line .user a .open-profile-button {
+				background-position: -14px -4px;
+				width: 7px;
+				height: 4px;
+				float: right;
+				margin: 9px 0 0 7px;
+			}
 
 
 	.main-content .tasks {

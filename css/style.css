@@ -75,12 +75,20 @@ body {
 		padding: 25px 0 25px 9px;
 		border-bottom: 1px solid #344456;
 	}
-		.aside .search input {
+		.aside .search input[type=search] {
 			padding: 6px 7px;
 			height: 18px;
 			width: 168px;
 			border-radius: 1px;
 			border: none;
+		}
+
+		.aside .search input[type=submit] {
+			background-position: -28px 0;
+			height: 17px;
+			width: 16px;
+			border: 0;
+			margin-left: -27px;
 		}
 
 		.aside .search input::-webkit-input-placeholder {
@@ -272,21 +280,29 @@ body {
 				border-bottom: 2px solid #3498DB;
 			}
 
-		.main-content .top-line .user a {
-			font: 14px 'Segoe UI';
-			color: #40536A;
+		.main-content .top-line .user {
 			float: right;
-			text-decoration: none;
-			margin-right: 6px;
 		}
 
-			.main-content .top-line .user a .open-profile-button {
-				background-position: -14px -4px;
-				width: 7px;
-				height: 4px;
-				float: right;
-				margin: 9px 0 0 7px;
+			.main-content .top-line .user a {
+				font: 14px 'Segoe UI';
+				color: #40536A;
+				
+				text-decoration: none;
+				margin-right: 6px;
 			}
+
+				.main-content .top-line .user a p {
+					float: left;
+				}
+
+				.main-content .top-line .user a .open-profile-button {
+					background-position: -14px -4px;
+					width: 7px;
+					height: 4px;
+					float: right;
+					margin: 9px 0 0 7px;
+				}
 
 
 	.main-content .tasks {

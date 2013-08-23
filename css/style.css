@@ -1,6 +1,6 @@
 body {
 	background: #34495E;
-	/*background: url(../404.png) no-repeat 328px 0;*/
+	background: url(../img/search-bg.png) no-repeat 328px 0;
 }
 
 .clear {
@@ -295,3 +295,39 @@ body {
 .page-404 p a {
 	color: #3F9AE0;
 }
+
+
+/*-- Search page --*/
+
+.search-page {
+	padding-left: 26px;
+}
+
+	.search-page h1 {
+		font: 30px 'Segoe UI';
+		color: #4C4C4C;
+		margin: 19px 0 34px 0;
+	}
+
+	.search-page .search-block {
+		background: #F0F2F4;
+		border: 1px solid #D7DCE1;
+	}
+
+		.search-page .search-block input[type=submit] {
+			background: #5D778F;
+			color: #fff;
+			height: 29px;
+			width: 80px;
+			border: 0;
+		}
+
+		.search-page .search-block input[type=search] {
+			font-family: 'Myriad Pro';
+			background: #fff;
+			color: #363636;
+			height: 15px;
+			width: 455px;
+			border: 1px solid #BEC2C4;
+			padding: 6px 7px;
+		}

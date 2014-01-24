@@ -1,5 +1,5 @@
 Docsvision
 ==========
 
-html templates for Docsvison.
 Старый и неактульный проект. Возможно с некоторыми перерабтками пригодиться в будующем, поэтому здесь и лежит.
+html templates for Docsvison.

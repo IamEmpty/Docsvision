@@ -1,5 +1,9 @@
 Docsvision
 ==========
 
-Старый и неактульный проект. Возможно с некоторыми перерабтками пригодиться в будующем, поэтому здесь и лежит.
-html templates for Docsvison.
+Old project. For future reference.
+HTML templates for Docsvison.
+
+## Using
+
+    bower install

@@ -1,0 +1,162 @@
+doctype html
+html
+  head
+    title Навигатор
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='bower_components/normalize-css/normalize.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
+    script(src='http://code.jquery.com/jquery-2.0.3.js')
+    script(src='js/script.js')
+  body
+    // Tricks for beautiful background
+    .white-background
+    .top-nav-background
+    // Tricks for beautiful background END
+    .page-wrapper
+      // Aside
+      .aside
+        .logotype
+          a(href='')
+            img(src='img/logotype.jpg', alt='Логотип')
+        .search
+          input(type='search', placeholder='Поиск')
+        // Add buttons
+        .add-buttons-wrapper
+          a(href='#')
+            .add-task
+              img(src='img/add-task.jpg', alt='Добавить задание')
+          a(href='#')
+            .add-document
+              img(src='img/add-document.jpg', alt='Добавить документ')
+          .clear
+        // Add buttons END
+        .user-folder
+          .folder-icon.sprite
+          a(href='#') Грушевский Юрий
+        // Tasks list
+        .tasks-heading
+          a(href='#')
+            .open-list-icon.sprite
+          a(href='#')
+            .tasks-icon.sprite
+            | 					Задания
+        ul
+          a(href='#')
+            li.active
+              .tasks-icon.sprite
+              | 						На исполнение
+              span 2
+          a(href='#')
+            li
+              .tasks-icon.sprite
+              | 						Отправленные
+          a(href='#')
+            li
+              .tasks-icon.sprite
+              | 						На контроле
+          a(href='#')
+            li
+              .tasks-icon.sprite
+              | 						На согласование
+        // Tasks list END
+        // Document list
+        .documents-heading
+          a(href='#')
+            .open-list-icon.sprite
+          a(href='#')
+            .documents-icon.sprite
+            | 					Мои документы
+        ul
+          a(href='#')
+            li
+              .documents-icon.sprite
+              | 						Входящие
+          a(href='#')
+            li
+              .documents-icon.sprite
+              | 						Исходящие
+          a(href='#')
+            li
+              .documents-icon.sprite
+              | 						На согласование
+              span 1
+          a(href='#')
+            li
+              .documents-icon.sprite
+              | 						Произвольные
+        // Document list END
+        .trash
+          .trash-icon.sprite
+          a(href='#') Корзина
+      // Aside END
+      // Main content
+      .main-content
+        .top-line
+          ul
+            li.active
+              a(href='#') Навигатор
+            li
+              a(href='#') Справочник
+          .user
+            a(href='#')
+              | Грушевский Юрий
+              .open-profile-button.sprite
+        .tasks
+          h1 На исполнение
+          input(type='checkbox')
+          | 				Прочитано
+          | 				Фильтр
+          | 				В работе
+          | 				/
+          | 				завершённые
+          | 				Название
+          | 				Исполнитель
+          | 				Срок
+          ul
+            li
+              input(type='checkbox')
+              | 						Срочно! Предоставить всю информацию по договорам
+              | 						Иванов И. И.
+              | 						13 фев
+            li
+              input(type='checkbox')
+              | 						Заказать оборудование (список в документе) Сидоров К.Н. 13 фев
+              | 						Перейти в карточку  →
+              | 						Заказывайте сразу у СевЗапКомплекта, москвичи сроки затягивают
+              | 						Состояние: Не начато
+              | 						Автор: Шустов К.Н.
+              | 						Контролер: Хромова Н.А.
+              | 						Оборудование СевЗапКомплект
+              | 						price.docx
+              | 						Завершить
+              | 						Делегировать
+              | 						Отклонить
+              | 						Создать задание
+            li
+              input(type='checkbox')
+              | 						Заказать транспорт для перевозки древесины
+              | 						Иванов И.И.
+              | 						13 фев
+            li
+              input(type='checkbox')
+              | 						Подготовить договор на закупку мебели в офис 426, список
+              | 						Кожевникова И.Г.
+              | 						26 мар
+            li
+              input(type='checkbox')
+              | 						Подготовить договор на закупку мебели в офис 428а, список
+              | 						Кожевникова И.Г.
+              | 						26 мар
+            li
+              input(type='checkbox')
+              | 						Приводные ремни
+              | 						Свиридов Ю.Н.
+              | 						6 июн
+            li
+              input(type='checkbox')
+              | 						Нужны стулья в ДП
+              | 						Серова З.
+              | 						15 янв
+        .clear
+      // Main content END
+      .clear

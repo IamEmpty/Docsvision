@@ -7,5 +7,4 @@ $(document).ready(function() {
 	    $('.aside ul li').removeClass('active');
 	    $(this).addClass('active');
 	});
-
 });

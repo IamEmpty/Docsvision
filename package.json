@@ -1,0 +1,26 @@
+{
+  "name": "docsvisiob",
+  "version": "1.0.0",
+  "description": "Docsvision ==========",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamEmpty/Docsvision.git"
+  },
+  "keywords": [
+    "jade",
+    "stylus"
+  ],
+  "author": "IamEmpty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IamEmpty/Docsvision/issues"
+  },
+  "homepage": "https://github.com/IamEmpty/Docsvision#readme",
+  "devDependencies": {
+    "stylus": "^0.53.0"
+  }
+}

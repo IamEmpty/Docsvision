@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-	// Aside menu
+  // Aside menu
 
-	$('.aside ul').on('click', 'li', function(e){
-	    e.stopPropagation();
-	    $('.aside ul li').removeClass('active');
-	    $(this).addClass('active');
-	});
+  $('.aside ul').on('click', 'li', function( event ){
+      event.stopPropagation();
+      $('.aside ul li').removeClass('active');
+      $(this).addClass('active');
+  });
 });

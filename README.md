@@ -1,9 +1,22 @@
-Docsvision
+DocsVision
 ==========
 
-Old project. For future reference.
-HTML templates for Docsvison.
+HTML templates for DocsVison.
 
 ## Using
 
     bower install
+    npm install
+    gulp
+
+# Specs
+
+Additional conditions:
+
+- При щелчке на строку, которая в таблице справа отображена «раскрытой» (внизу которой отображена детальная информация о задании), должно производится закрытие/раскрытие панели с детальной информацией, при этом подсветка строки также должна изменяться в зависимости от того, раскрыта или закрыта панель.
+
+- Do "search" in the search string like a placeholder.
+
+- В древовидном представлении слева должна быть возможность выбрать любой элемент (а не только «На исполнение»). Выбор элемента осуществляется при нажатии на любом месте выделяемой прямоугольной области (а не только при нажатии на текст).
+
+- Supported browsers: IE10, Chrome, Firefox, Safari.

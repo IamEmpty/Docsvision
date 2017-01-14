@@ -1,15 +1,14 @@
-DocsVision
-==========
+# DocsVision
 
 HTML templates for DocsVison.
 
-## Using
+## Usage
 
-    bower install
     npm install
+    bower install
     gulp
 
-# Specs
+## Specs
 
 Additional conditions:
 
@@ -18,5 +17,3 @@ Additional conditions:
 - Do "search" in the search string like a placeholder.
 
 - В древовидном представлении слева должна быть возможность выбрать любой элемент (а не только «На исполнение»). Выбор элемента осуществляется при нажатии на любом месте выделяемой прямоугольной области (а не только при нажатии на текст).
-
-- Supported browsers: IE10, Chrome, Firefox, Safari.

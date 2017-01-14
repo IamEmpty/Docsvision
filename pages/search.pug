@@ -1,0 +1,124 @@
+extends ../layouts/base-layout
+
+block title
+  title Поиск
+
+block content
+  // Tricks for beautiful background
+  .white-background
+  .top-nav-background
+  .page-wrapper
+    // Aside
+    .aside
+      .logotype
+        a(href='#')
+          img(src='img/logotype.jpg', alt='Логотип')
+      form
+        .search
+          input(type='search', placeholder='Поиск')
+          input.sprite(type='submit', value='')
+      // Add buttons
+      .add-buttons-wrapper
+        a(href='#')
+          .add-task
+            img(src='img/add-task.jpg', alt='Добавить задание')
+        a(href='#')
+          .add-document
+            img(src='img/add-document.jpg', alt='Добавить документ')
+        .clear
+      .user-folder
+        .folder-icon.sprite
+        a(href='#') Грушевский Юрий
+      // Tasks list
+      .tasks-heading
+        a(href='#')
+          .open-list-icon.sprite
+        a(href='#')
+          .tasks-icon.sprite
+          | Задания
+      ul
+        a(href='#')
+          li
+            .tasks-icon.sprite
+            | На исполнение
+            span 2
+        a(href='#')
+          li
+            .tasks-icon.sprite
+            | Отправленные
+        a(href='#')
+          li
+            .tasks-icon.sprite
+            | На контроле
+        a(href='#')
+          li
+            .tasks-icon.sprite
+            | На согласование
+      // Document list
+      .documents-heading
+        a(href='#')
+          .open-list-icon.sprite
+        a(href='#')
+          .documents-icon.sprite
+          | Мои документы
+      ul
+        a(href='#')
+          li
+            .documents-icon.sprite
+            | Входящие
+        a(href='#')
+          li
+            .documents-icon.sprite
+            | Исходящие
+        a(href='#')
+          li
+            .documents-icon.sprite
+            | На согласование
+            span 1
+        a(href='#')
+          li
+            .documents-icon.sprite
+            | Произвольные
+      .trash
+        .trash-icon.sprite
+        a(href='#') Корзина
+    // Main content
+    .main-content
+      // Top navigation
+      .top-line
+        ul
+          li.active
+            a(href='#') Навигатор
+          li
+            a(href='#') Справочник
+        .user
+          a(href='#')
+            | Грушевский Юрий
+            .open-profile-button.sprite
+      .search-page
+        h1 Поиск
+        .search-block
+          .left-column
+            label(for='keywords') Ключевые слова
+            label(for='author')
+              | Автор/исполнитель
+              label Период
+          .right-column
+            input#keywords(type='search')
+            input(type='submit', value='Найти')
+            br
+            input#author
+            select#optlist(multiple='multiple')
+              option(value='1') Арбузов К.А.
+              option(value='2') Астахов К.З.
+              option(value='3') Беликов Р.А.
+              option(value='4') Баранов В.З.
+              option(value='4') Быков В.Н.
+              option(value='4') Волков Н.А.
+            span
+              a(href='') Справочник сотрудников
+            input(type='text')
+            input(type='text')
+            input(type='checkbox')
+            span Искать по вложениям
+    .clear

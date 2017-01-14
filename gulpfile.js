@@ -1,20 +1,17 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
   fs = require('fs'),
-  replace = require('gulp-replace'),
-  jade = require('gulp-jade'),
-  stylus = require('gulp-stylus'),
-  plumber = require('gulp-plumber'),
-  htmlmin = require('gulp-htmlmin'),
-  nano = require('gulp-cssnano'),
-  spritesmith = require('gulp.spritesmith'),
-  ghPages = require('gulp-gh-pages'),
-  merge = require('merge-stream');
+  // replace = require('gulp-replace'),
+  // htmlmin = require('gulp-htmlmin'),
+  // nano = require('gulp-cssnano'),
+  // spritesmith = require('gulp.spritesmith'),
+  // merge = require('merge-stream'),
+  plugins = require('gulp-load-plugins')();
 
-var paths = {
-  jade: 'pages/*.jade',
+const paths = {
+  jade: 'pages/*.pug',
   jadeWatch: [
-    'pages/*.jade',
-    'layouts/*.jade'
+    'pages/*.pug',
+    'layouts/*.pug'
   ],
   stylus: [
     'stylesheets/main.styl'
@@ -25,44 +22,51 @@ var paths = {
   ],
   images: 'img/**/*.{png,jpg}',
   css: 'bower_components/normalize-css/normalize.css',
+  cssToCopy: [
+    'bower_components/normalize-css/normalize.css'
+  ],
   js: 'js/*.js',
+  jsToCopy: [
+    'js/*.js',
+    'bower_components/jquery/dist/jquery.min.js'
+  ],
   build: 'build/',
   dist: 'dist/'
 };
 
 // Get one .styl file and render
-gulp.task('css', function() {
+function css() {
   return gulp.src(paths.stylus)
-    .pipe(plumber())
-    .pipe(stylus({
+    .pipe(plugins.plumber())
+    .pipe(plugins.stylus({
       'include css': true
     }))
     .pipe(gulp.dest(paths.build + 'css/'));
-});
+}
 
-gulp.task('html', function() {
+function html() {
   return gulp.src(paths.jade)
-    .pipe(plumber())
-    .pipe(jade({
+    .pipe(plugins.plumber())
+    .pipe(plugins.pug({
       pretty: true
     }))
     .pipe(gulp.dest(paths.build));
-});
+}
 
-gulp.task('minify-css', function() {
+function minifyCss() {
   return gulp.src(paths.stylus)
-    .pipe(plumber())
-    .pipe(stylus({
+    .pipe(plugins.plumber())
+    .pipe(plugins.stylus({
       'include css': true
     }))
     .pipe(nano())
     .pipe(gulp.dest(paths.dist + 'css/'));
-});
+}
 
-gulp.task('minify-html', ['minify-css'], function() {
+function minifyHtml() {
   return gulp.src(paths.jade)
-    .pipe(plumber())
-    .pipe(jade())
+    .pipe(plugins.plumber())
+    .pipe(plugins.pug())
     // Css from file to inline
     .pipe(replace(/<link href="above-the-fold.css" rel="stylesheet">/, function(s) {
       var style = fs.readFileSync('dist/css/above-the-fold.css', 'utf8');
@@ -70,69 +74,78 @@ gulp.task('minify-html', ['minify-css'], function() {
     }))
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest(paths.dist));
-});
+}
 
-gulp.task('copy', ['copy-images', 'copy-js']);
-
-gulp.task('copy-images', function() {
+function copyImages() {
   return gulp.src(paths.images)
     .pipe(gulp.dest(paths.build + 'img/'));
-});
+}
 
-gulp.task('copy-js', function() {
-  return gulp.src(paths.js)
+function copyJs() {
+  return gulp.src(paths.jsToCopy)
     .pipe(gulp.dest(paths.build + 'js/'));
-});
+}
 
-gulp.task('copy-to-dist', ['copy-images-to-dist', 'copy-js-to-dist']);
+function copyCss() {
+  return gulp.src(paths.cssToCopy)
+    .pipe(gulp.dest(paths.build + 'css/'));
+}
 
-gulp.task('copy-images-to-dist', function() {
+const copy = gulp.parallel(copyImages, copyJs, copyCss);
+
+
+function copyImagesToDist() {
   return gulp.src(paths.images)
     .pipe(gulp.dest(paths.dist + 'img/'));
-});
+}
 
-gulp.task('copy-js-to-dist', function() {
+function copyJsToDist() {
   return gulp.src(paths.js)
     .pipe(gulp.dest(paths.dist + 'js/'));
-});
+}
 
-gulp.task('sprite', function () {
+const copyToDist = gulp.series(copyImagesToDist, copyJsToDist);
+
+
+function sprite() {
   // Generate our spritesheet
-  var spriteData = gulp.src('img/previews/*.jpg')
+  let spriteData = gulp.src('img/previews/*.jpg')
     .pipe(spritesmith({
       imgName: '../img/sprites/sprite.png',
       cssName: 'sprite.styl'
     }));
 
   // Pipe image stream through image optimizer and onto disk
-  var imgStream = spriteData.img
+  let imgStream = spriteData.img
     // DEV: We must buffer our stream into a Buffer for `imagemin`
     // .pipe(buffer())
     // .pipe(imagemin())
     .pipe(gulp.dest('./sprites/'));
 
   // Pipe CSS stream through CSS optimizer and onto disk
-  var cssStream = spriteData.css
+  let cssStream = spriteData.css
     // .pipe(csso())
     .pipe(gulp.dest('stylesheets/'));
 
   // Return a merged stream to handle both `end` events
   return merge(imgStream, cssStream);
-});
+}
 
 // Rerun the task when a file changes
-gulp.task('watch', function() {
-  gulp.watch(paths.stylusWatch, ['css']);
-  gulp.watch(paths.jadeWatch, ['html']);
-  gulp.watch(paths.js, ['copy-js']);
-});
-
-gulp.task('deploy', ['dist'], function() {
-  return gulp.src(paths.dist + '**/*')
-    .pipe(ghPages());
-});
+function watch() {
+  gulp.watch(paths.stylusWatch, css);
+  gulp.watch(paths.jadeWatch, html);
+  gulp.watch(paths.js, copyJs);
+}
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('build', ['html', 'css', 'watch', 'copy']);
-gulp.task('dist', ['minify-html', 'minify-css', 'copy-to-dist', 'sprite']);
-gulp.task('default', ['build']);
+const build = gulp.series(html, css, copy, watch);
+gulp.task('build', build);
+gulp.task('dist', gulp.series(minifyCss, minifyHtml, copyToDist, sprite));
+
+gulp.task('deploy', gulp.series('dist', function() {
+  return gulp.src(paths.dist + '**/*')
+    .pipe(plugins.ghPages());
+}));
+
+gulp.task('default', build);

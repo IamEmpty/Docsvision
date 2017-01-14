@@ -1,12 +1,11 @@
 {
-  "name": "Docsvision",
-  "homepage": "https://github.com/IamEmpty/Docsvision",
+  "name": "docsvision",
+  "homepage": "https://github.com/pure-js/docsvision",
   "authors": [
-    "IamEmpty"
+    "pure-js"
   ],
   "description": "Old project",
   "main": "README.md",
-  "moduleType": [],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -16,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-css": "normalize.css#~3.0.3",
-    "jquery": "~2.2.0"
+    "normalize-css": "~5.0.0",
+    "jquery": "~3.1.1"
   }
 }

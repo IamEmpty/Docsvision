@@ -1,30 +1,31 @@
 {
-  "name": "docsvisiob",
+  "name": "docsvision",
   "version": "1.0.0",
-  "description": "Docsvision",
+  "description": "DocsVision html layout",
   "main": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IamEmpty/Docsvision.git"
+    "url": "git+https://github.com/pure-js/docsvision.git"
   },
   "keywords": [
-    "jade",
+    "pug",
     "stylus"
   ],
-  "author": "IamEmpty",
+  "author": "pure-js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IamEmpty/Docsvision/issues"
+    "url": "https://github.com/pure-js/docsvision/issues"
   },
-  "homepage": "https://github.com/IamEmpty/Docsvision#readme",
+  "homepage": "https://github.com/pure-js/docsvision#readme",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-jade": "^1.1.0",
-    "gulp-stylus": "^2.2.0",
-    "jade": "^1.11.0",
-    "stylus": "^0.53.0"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.2.0",
+    "gulp-stylus": "^2.2.0"
   }
 }

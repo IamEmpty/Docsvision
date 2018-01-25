@@ -21,9 +21,9 @@ const paths = {
     'stylesheets/main.styl'
   ],
   images: 'img/**/*.{png,jpg}',
-  css: 'bower_components/normalize-css/normalize.css',
+  css: 'node_modules/normalize.css/normalize.css',
   cssToCopy: [
-    'bower_components/normalize-css/normalize.css'
+    'node_modules/normalize.css/normalize.css'
   ],
   js: 'js/*.js',
   jsToCopy: [

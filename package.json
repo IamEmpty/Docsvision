@@ -11,10 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/pure-js/docsvision.git"
   },
-  "keywords": [
-    "pug",
-    "stylus"
-  ],
+  "keywords": [],
   "author": "pure-js",
   "license": "MIT",
   "bugs": {

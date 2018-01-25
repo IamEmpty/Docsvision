@@ -5,7 +5,6 @@ HTML templates for DocsVison.
 ## Running
 
     npm install
-    bower install
     npm start
 
 ## Specs

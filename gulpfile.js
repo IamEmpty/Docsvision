@@ -28,7 +28,6 @@ const paths = {
   js: 'js/*.js',
   jsToCopy: [
     'js/*.js',
-    'bower_components/jquery/dist/jquery.min.js'
   ],
   build: 'build/',
   dist: 'dist/'

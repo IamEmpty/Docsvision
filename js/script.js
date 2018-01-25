@@ -1,10 +1,11 @@
-$(document).ready(function() {
 
-  // Aside menu
+// Aside menu
 
-  $('.aside ul').on('click', 'li', function( event ){
-    event.stopPropagation();
-    $('.aside ul li').removeClass('active');
-    $(this).addClass('active');
-  });
-});
+const asideMenu = document.querySelectorAll('.aside ul');
+function setActiveClass (event) {
+  event.target.classList.remove('active');
+  event.target.classList.add('active');
+}
+
+asideMenu[0].onclick = setActiveClass;
+asideMenu[1].onclick = setActiveClass;

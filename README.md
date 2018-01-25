@@ -2,18 +2,15 @@
 
 HTML templates for DocsVison.
 
-## Usage
+## Running
 
     npm install
     bower install
-    gulp
+    npm start
 
 ## Specs
 
 Additional conditions:
-
-- При щелчке на строку, которая в таблице справа отображена «раскрытой» (внизу которой отображена детальная информация о задании), должно производится закрытие/раскрытие панели с детальной информацией, при этом подсветка строки также должна изменяться в зависимости от того, раскрыта или закрыта панель.
-
+- If you click on the row that shows "detailed" in the table to the right (the bottom of which shows detailed information about the job), you should close / open the panel with detailed information, and the line's light must also change depending on whether the panel is opened or closed.
 - Do "search" in the search string like a placeholder.
-
-- В древовидном представлении слева должна быть возможность выбрать любой элемент (а не только «На исполнение»). Выбор элемента осуществляется при нажатии на любом месте выделяемой прямоугольной области (а не только при нажатии на текст).
+- In the tree view on the left, it should be possible to select any element (not just "For execution"). Selecting an element is done by clicking anywhere on the rectangular area (and not just when you click on the text).
